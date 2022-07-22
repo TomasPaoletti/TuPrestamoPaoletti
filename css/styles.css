@@ -1,0 +1,68 @@
+.navpersonalized {
+  background-color: #389EFF !important; }
+  .navpersonalized a {
+    color: #F8FAFB !important; }
+
+body {
+  font-family: roboto;
+  padding-top: 3rem; }
+  body h2 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 3rem;
+    margin: 2rem; }
+
+.box-list {
+  background-color: white;
+  margin: 2rem;
+  padding: 3rem;
+  border-radius: 1cm; }
+  .box-list ul {
+    list-style-type: disclosure-closed;
+    font-weight: 600; }
+  .box-list li {
+    padding: 0.5rem; }
+
+.seccion-requisitos {
+  background-color: #389EFF; }
+  .seccion-requisitos h2 {
+    padding-bottom: 1rem;
+    margin: 0; }
+  .seccion-requisitos button {
+    background-color: #DE3C4B;
+    font-weight: 600;
+    border-radius: 0.5rem; }
+    .seccion-requisitos button:hover {
+      background-color: #389EFF;
+      color: #F8FAFB;
+      transition: all, linear 0.3s; }
+
+.seccion-comofunciona {
+  text-align: center; }
+  .seccion-comofunciona span {
+    color: #389EFF; }
+  .seccion-comofunciona h3 {
+    font-weight: bold; }
+  .seccion-comofunciona p {
+    font-weight: 600; }
+  .seccion-comofunciona .col-lg-4 {
+    padding: 2rem 3rem; }
+  .seccion-comofunciona .bx {
+    color: #389EFF;
+    border-color: #389EFF;
+    margin-bottom: 1rem; }
+
+.seccion-porque-escogernos {
+  background-color: #389EFF; }
+  .seccion-porque-escogernos span {
+    color: #F8FAFB; }
+  .seccion-porque-escogernos ul {
+    list-style-type: disclosure-closed;
+    font-weight: 600; }
+  .seccion-porque-escogernos li {
+    padding: 0.5rem; }
+  .seccion-porque-escogernos .lista-porqueelegirnos {
+    background-color: white;
+    margin: 2rem;
+    padding: 3rem;
+    border-radius: 1cm; }

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu prestamo</title>
+    <!-- link boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <!-- link fuente -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <!-- link bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <!-- link css -->
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <!-- logo + navbar -->
+    <header>
+        <nav class="navbar fixed-top navbar-expand-md navpersonalized navbar-light container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <img class="navbar-brand" src="./img/logo.png" alt="logo de la empresa">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#seccion-requisitos">Requisitos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#seccion-comofunciona">¿Cómo funciona?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#seccion-porque-escogernos">¿Por qué escogernos?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Calcula tu prestamo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#seccion-preguntas-frecuentes">Preguntas frecuentes</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- seccion requisitos -->
+    <section id="seccion-requisitos">
+        <div class="container-fluid seccion-requisitos">
+            <div class="row justify-content-center">
+                <div class="col-lg-5 box-list">
+                    <h2>Requisitos minimos</h2>
+                    <ul>
+                        <li>Estar bajo relación de dependencia, ser autónomo o monotributista, ser jubilado o pensionado
+                        </li>
+                        <li>Ser mayor de 18 años
+                        </li>
+                        <li>Tener un ingreso minimo de $20.000
+                        </li>
+                        <li>Una cuenta bancaria o billetera virtual a tu nombre
+                        </li>
+                        <li>No estar dentro del Veraz
+                        </li>
+                    </ul>
+                    <div class="d-grid gap-2 col-4 mx-auto">
+                        <button class="btn btn-outline" type="button">Aplicar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- seccion ¿cómo funciona? -->
+    <section id="seccion-comofunciona">
+        <div class="container-fluid seccion-comofunciona">
+            <div class="row">
+                <div class="col">
+                    <h2>¿Cómo funciona <span>Tu préstamo?</span></h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <i class='bx bxs-id-card bx-lg bx-border'></i>
+                    <h3>Completá tus datos</h3>
+                    <p>Solo necesitas tu DNI, un celular con cámara y el CBU o alias de tu cuenta</p>
+                </div>
+                <div class="col-lg-4">
+                    <i class='bx bxs-watch bx-lg bx-border'></i>
+                    <h3>Pedí tu préstamo</h3>
+                    <p>En solo 10 minutos</p>
+                </div>
+                <div class="col-lg-4">
+                    <i class='bx bxs-wallet bx-lg bx-border'></i>
+                    <h3>Recibí el dinero</h3>
+                    <p>Acreditación en hasta 48 horas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- seccion ¿por qué escogernos? -->
+    <section id="seccion-porque-escogernos">
+        <div class="container-fluid seccion-porque-escogernos">
+            <div class="row">
+                <div class="col">
+                    <h2>¿Estas en dudas de <span>Por qué escogernos?</span></h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-5 box-list">
+                    <ul>
+                        <li>Devolución cuotas fijas en pesos</li>
+                        <li>Elegis el prestamo que mas se adapte a vos</li>
+                        <li>Es todo 100% online</li>
+                        <li>En maximo 48 horas ya tenes tu dinero</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- seccion preguntas frecuentes -->
+    <section id="seccion-preguntas-frecuentes">
+        <div class="container-fluid seccion-preguntas-frecuentes">
+            <h2>Preguntas frecuentes</h2>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            ¿Cuanto dinero puedo pedir?
+                        </button>
+                    </h3>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne">
+                        <div class="accordion-body">
+                            Podes pedir desde $5.000 hasta $200.000 en un momento.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="flush-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        ¿Como pago el prestamo?
+                    </button>
+                </h3>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo">
+                    <div class="accordion-body">
+                        El pago se puede realizar via internet por las paginas de rapipago, pago facil o pagomiscuentas
+                        o puede ser presencialmente en cualquier sucursal de pago facil o rapipago.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                        ¿Que documentos necesito para realizar el tramite?
+                    </button>
+                </h3>
+                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree">
+                    <div class="accordion-body">
+                        Solamente debes tener a mano tu DNI ya que es necesario una foto del frente y del dorso del
+                        mismo y una selfie. El proceso es 100% online.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="flush-headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                        ¿Como recibo el dinero del prestamo?
+                    </button>
+                </h3>
+                <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour">
+                    <div class="accordion-body">
+                        Recibiras el dinero del prestamo en tu cuenta bancaria o billetera virtual.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- link de JavaScript -->
+    <script src="./js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
