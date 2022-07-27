@@ -64,5 +64,34 @@ console.log(prestamoPersonal);
 
 console.log(clientes);
 
-const maxmonth = clientes.some((clientes) => clientes.cuotasapagar > 12);
+const maxmonth = clientes.some((clientes) => clientes.cuotasapagar >= 12);
 console.log(maxmonth);
+
+// desafio complementario
+
+let seccion_calcular_prestamo = document.createElement("section");
+document.body.append(seccion_calcular_prestamo);
+
+let datoscredito = document.createElement("div");
+datoscredito.innerHTML = `<h2>Tus datos son</h2>
+<p>Nombre: ${nombrePersona}</p>
+<p>Edad: ${edadPersona}</p>
+<p>Nacionalidad: ${nacionalidad}</p>
+<p>Razon social: ${razonSocial}</p>`
+
+seccion_calcular_prestamo.append(datoscredito);
+
+let seccionModificada = document.querySelector("#seccion-requisitos h2");
+seccionModificada.innerText = "Los datos de tu credito son";
+
+let listamodificada = document.querySelector(".mod1");
+listamodificada.innerText = "La cantidad de dinero que te daremos es: " + dineroprestado;
+let listamodificada2 = document.querySelector(".mod2");
+listamodificada2.innerText = "Lo vas a pagar en: " + cuotasapagar + " meses";
+let listamodificada3 = document.querySelector(".mod3");
+listamodificada3.innerText = "Devolveras la cantidad total de: " + dineroconinteres;
+let listamodificada4 = document.querySelector(".mod4");
+listamodificada4.innerText = "Tendras que pagar: " + porcuota.toFixed(2) + " por mes";
+
+let lieliminado = document.querySelector(".mod5");
+lieliminado.remove();
