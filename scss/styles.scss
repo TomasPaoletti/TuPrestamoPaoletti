@@ -99,3 +99,29 @@ body {
         border-radius: 1cm
     }
 }
+
+.seccion-calcular-prestamo{
+    button {
+        background-color: $color-detail;
+        font-weight: 600;
+        border-radius: 0.5rem;
+
+        &:hover {
+            background-color: $color-primary;
+            color: $color-text;
+            transition: all, linear 0.3s;
+        }
+    }
+}
+
+.seccion-preguntas-frecuentes{
+    background-color: $color-primary;
+    color: $color-text;
+    .accordion-button{
+        background-color: $color-primary;
+        color: $color-text;
+    }
+    .accordion-item{
+        background-color: $color-primary;
+    }
+}

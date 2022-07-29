@@ -66,3 +66,21 @@ body {
     margin: 2rem;
     padding: 3rem;
     border-radius: 1cm; }
+
+.seccion-calcular-prestamo button {
+  background-color: #DE3C4B;
+  font-weight: 600;
+  border-radius: 0.5rem; }
+  .seccion-calcular-prestamo button:hover {
+    background-color: #389EFF;
+    color: #F8FAFB;
+    transition: all, linear 0.3s; }
+
+.seccion-preguntas-frecuentes {
+  background-color: #389EFF;
+  color: #F8FAFB; }
+  .seccion-preguntas-frecuentes .accordion-button {
+    background-color: #389EFF;
+    color: #F8FAFB; }
+  .seccion-preguntas-frecuentes .accordion-item {
+    background-color: #389EFF; }

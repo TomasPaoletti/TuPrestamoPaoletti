@@ -48,7 +48,7 @@
                         <a class="nav-link" href="#seccion-porque-escogernos">¿Por qué escogernos?</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Calcula tu prestamo</a>
+                        <a class="nav-link" href="#seccion-calcular-prestamo">Calcula tu prestamo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#seccion-preguntas-frecuentes">Preguntas frecuentes</a>
@@ -61,18 +61,18 @@
     <section id="seccion-requisitos">
         <div class="container-fluid seccion-requisitos">
             <div class="row justify-content-center">
-                <div class="col-lg-5 box-list listmodificada">
+                <div class="col-lg-5 box-list">
                     <h2>Requisitos minimos</h2>
                     <ul>
-                        <li class="mod1">Estar bajo relación de dependencia, ser autónomo o monotributista, ser jubilado o pensionado
+                        <li>Estar bajo relación de dependencia, ser autónomo o monotributista, ser jubilado o pensionado
                         </li>
-                        <li class="mod2">Ser mayor de 18 años
+                        <li>Ser mayor de 18 años
                         </li>
-                        <li class="mod3">Tener un ingreso minimo de $20.000
+                        <li>Tener un ingreso minimo de $20.000
                         </li>
-                        <li class="mod4">Una cuenta bancaria o billetera virtual a tu nombre
+                        <li>Una cuenta bancaria o billetera virtual a tu nombre
                         </li>
-                        <li class="mod5">No estar dentro del Veraz
+                        <li>No estar dentro del Veraz
                         </li>
                     </ul>
                     <div class="d-grid gap-2 col-4 mx-auto">
@@ -125,6 +125,36 @@
                         <li>Es todo 100% online</li>
                         <li>En maximo 48 horas ya tenes tu dinero</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Seccion calcular prestamo -->
+    <section id="seccion-calcular-prestamo">
+        <div class="container-fluid seccion-calcular-prestamo">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <div class="col">
+                        <h2>Calcula tu prestamo</h2>
+                    </div>
+                    <form action="">
+                        <div class="row g-3 align-items-center">
+                            <div class="col-lg-5">
+                                <label for="inputmonto" class="col-form-label">¿Cuanto dinero quieres?</label>
+                            </div>
+                            <div class="col-lg-5">
+                                <input type="number" id="inputmonto" class="form-control">
+                            </div>
+                            <div class="col-lg-5">
+                                <label for="inputcuotas" class="col-form-label">¿En cuantas cuotas quieres
+                                    pagarlo?</label>
+                            </div>
+                            <div class="col-lg-5">
+                                <input type="number" id="inputcuotas" class="form-control">
+                            </div>
+                            <button class="btn btn-outline" type="button">Calcular</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
