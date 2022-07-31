@@ -100,7 +100,7 @@ body {
     }
 }
 
-.seccion-calcular-prestamo{
+.seccion-calcular-prestamo {
     button {
         background-color: $color-detail;
         font-weight: 600;
@@ -114,14 +114,22 @@ body {
     }
 }
 
-.seccion-preguntas-frecuentes{
+dialog {
+&::backdrop{
+    background-color: rgba(0,0,0,.70);
+}
+}
+
+.seccion-preguntas-frecuentes {
     background-color: $color-primary;
     color: $color-text;
-    .accordion-button{
+
+    .accordion-button {
         background-color: $color-primary;
         color: $color-text;
     }
-    .accordion-item{
+
+    .accordion-item {
         background-color: $color-primary;
     }
 }

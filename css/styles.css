@@ -76,6 +76,9 @@ body {
     color: #F8FAFB;
     transition: all, linear 0.3s; }
 
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.7); }
+
 .seccion-preguntas-frecuentes {
   background-color: #389EFF;
   color: #F8FAFB; }

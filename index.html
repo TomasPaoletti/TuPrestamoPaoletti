@@ -152,11 +152,24 @@
                             <div class="col-lg-5">
                                 <input type="number" id="inputcuotas" class="form-control">
                             </div>
-                            <button class="btn btn-outline" type="button">Calcular</button>
+                            <button class="btn btn-outline" type="button"
+                                id="btn-abrir-modal-prestamo">Calcular</button>
                         </div>
                     </form>
                 </div>
             </div>
+            <dialog id="modal-prestamo">
+                <div class="box-list">
+                    <h2 id="titulo"></h2>
+                    <ul>
+                        <li id="primera"></li>
+                        <li id="segunda"></li>
+                        <li id="tercera"></li>
+                        <li id="cuarta"></li>
+                    </ul>
+                    <button class="btn btn-outline" type="button" id="btn-cerrar-modal-prestamo">Volver</button>
+                </div>
+            </dialog>
         </div>
     </section>
     <!-- seccion preguntas frecuentes -->
