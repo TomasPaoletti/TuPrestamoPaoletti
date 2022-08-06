@@ -67,23 +67,35 @@ body {
     padding: 3rem;
     border-radius: 1cm; }
 
-.seccion-calcular-prestamo button {
-  background-color: #DE3C4B;
-  font-weight: 600;
-  border-radius: 0.5rem; }
-  .seccion-calcular-prestamo button:hover {
-    background-color: #389EFF;
-    color: #F8FAFB;
-    transition: all, linear 0.3s; }
-
-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.7); }
+.seccion-calcular-prestamo {
+  padding-bottom: 3rem; }
+  .seccion-calcular-prestamo button {
+    background-color: #DE3C4B;
+    font-weight: 600;
+    border-radius: 0.5rem; }
+    .seccion-calcular-prestamo button:hover {
+      background-color: #389EFF;
+      color: #F8FAFB;
+      transition: all, linear 0.3s; }
+  .seccion-calcular-prestamo label {
+    font-weight: 600; }
+  .seccion-calcular-prestamo dialog {
+    border-radius: 1cm;
+    text-align: center;
+    padding-bottom: 1rem; }
+    .seccion-calcular-prestamo dialog ul {
+      list-style-type: disclosure-closed;
+      font-weight: 600; }
+    .seccion-calcular-prestamo dialog li {
+      padding: 0.5rem; }
+    .seccion-calcular-prestamo dialog::backdrop {
+      background-color: rgba(0, 0, 0, 0.7); }
 
 .seccion-preguntas-frecuentes {
-  background-color: #389EFF;
-  color: #F8FAFB; }
+  background-color: #389EFF; }
   .seccion-preguntas-frecuentes .accordion-button {
     background-color: #389EFF;
-    color: #F8FAFB; }
+    font-weight: 600; }
   .seccion-preguntas-frecuentes .accordion-item {
-    background-color: #389EFF; }
+    background-color: #389EFF;
+    font-weight: 600; }

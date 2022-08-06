@@ -101,6 +101,8 @@ body {
 }
 
 .seccion-calcular-prestamo {
+    padding-bottom: 3rem;
+
     button {
         background-color: $color-detail;
         font-weight: 600;
@@ -112,24 +114,39 @@ body {
             transition: all, linear 0.3s;
         }
     }
-}
 
-dialog {
-&::backdrop{
-    background-color: rgba(0,0,0,.70);
-}
-}
+    label {
+        font-weight: 600;
+    }
 
-.seccion-preguntas-frecuentes {
+    dialog {
+        border-radius: 1cm;
+        text-align: center;
+        padding-bottom: 1rem;
+        ul {
+            list-style-type: disclosure-closed;
+            font-weight: 600;
+        }
+
+        li {
+            padding: 0.5rem;
+        }
+
+        &::backdrop {
+            background-color: rgba(0, 0, 0, .70);
+        }
+    }
+   }
+   .seccion-preguntas-frecuentes {
     background-color: $color-primary;
-    color: $color-text;
 
     .accordion-button {
         background-color: $color-primary;
-        color: $color-text;
+        font-weight: 600;
     }
 
     .accordion-item {
         background-color: $color-primary;
+        font-weight: 600;
     }
 }
