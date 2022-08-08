@@ -11,23 +11,59 @@ body {
         font-size: 3rem;
         margin: 2rem;
     }
-}
 
-.box-list {
-    background-color: white;
-    margin: 2rem;
-    padding: 3rem;
-    border-radius: 1cm;
-
-    ul {
-        list-style-type: disclosure-closed;
+    p {
         font-weight: 600;
     }
 
-    li {
-        padding: 0.5rem;
+    h3 {
+        font-weight: bold;
+    }
+
+    dialog {
+        border-radius: 1cm;
+        padding-bottom: 1rem;
+
+        ul {
+            list-style-type: disclosure-closed;
+            font-weight: 600;
+            margin: 0 12rem;
+        }
+
+        li {
+            padding: 0.5rem;
+        }
+
+        &::backdrop {
+            background-color: rgba(0, 0, 0, .70);
+        }
+    }
+
+    label {
+        font-weight: 600;
+    }
+
+    .box-list {
+        background-color: white;
+        margin: 2rem;
+        padding: 3rem;
+        border-radius: 1cm;
+
+        ul {
+            list-style-type: disclosure-closed;
+            font-weight: 600;
+        }
+
+        li {
+            padding: 0.5rem;
+        }
+    }
+    .no-datos{
+        color: $color-detail;
+        font-size: 80%;
     }
 }
+
 
 .seccion-requisitos {
     background-color: $color-primary;
@@ -48,6 +84,9 @@ body {
             transition: all, linear 0.3s;
         }
     }
+    .btn-modal{
+        margin: 3px;
+    }
 }
 
 .seccion-comofunciona {
@@ -55,14 +94,6 @@ body {
 
     span {
         color: $color-primary;
-    }
-
-    h3 {
-        font-weight: bold;
-    }
-
-    p {
-        font-weight: 600;
     }
 
     .col-lg-4 {
@@ -107,6 +138,7 @@ body {
         background-color: $color-detail;
         font-weight: 600;
         border-radius: 0.5rem;
+        margin: 1rem 12rem;
 
         &:hover {
             background-color: $color-primary;
@@ -114,30 +146,9 @@ body {
             transition: all, linear 0.3s;
         }
     }
+}
 
-    label {
-        font-weight: 600;
-    }
-
-    dialog {
-        border-radius: 1cm;
-        text-align: center;
-        padding-bottom: 1rem;
-        ul {
-            list-style-type: disclosure-closed;
-            font-weight: 600;
-        }
-
-        li {
-            padding: 0.5rem;
-        }
-
-        &::backdrop {
-            background-color: rgba(0, 0, 0, .70);
-        }
-    }
-   }
-   .seccion-preguntas-frecuentes {
+.seccion-preguntas-frecuentes {
     background-color: $color-primary;
 
     .accordion-button {

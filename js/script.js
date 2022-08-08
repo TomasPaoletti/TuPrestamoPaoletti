@@ -35,13 +35,21 @@ function modalAgregado(resultado, dineroPrestado, cuotasApagar) {
 
 function mostrarDatos() {
     const datosRecuperados = JSON.parse(sessionStorage.getItem("datosCalculo"));
-    divAgregado.innerHTML = "";
-    let htmlagregado = `<ul>
-   <li>Dinero solicitado: ${datosRecuperados.montoPrestado}</li>
-   <li>Cuotas elegidas : ${datosRecuperados.cuotasElegidas}</li>`;
-    divAgregado.innerHTML = htmlagregado;
+    if (datosRecuperados) {
+        let htmlagregado = `<ul id="remove">
+   <li>Dinero solicitado: $${datosRecuperados.montoPrestado}</li>
+   <li>Cuotas elegidas : $${datosRecuperados.cuotasElegidas}</li>`;
+        divAgregado.innerHTML = htmlagregado;
+    } else {
+        let noDatos = `<p class="no-datos" id="remove">No calculaste ningun prestamo todavia.</p>`
+        divAgregado.innerHTML = noDatos;
+    }
 }
 
+function ocultarDatos() {
+    const divRemove = document.getElementById("remove");
+    divRemove.remove();
+}
 btnAbrirModalPrestamo.addEventListener("click", () => {
     let dineroPrestado = document.getElementById("inputmonto").value;
     let cuotasApagar = document.getElementById("inputcuotas").value;
@@ -66,8 +74,13 @@ btnEnviarLink.addEventListener("click", () => {
     sessionStorage.setItem("datosSolicitante", JSON.stringify(datosSolicitante));
 })
 
-flexSwitch.addEventListener("click", () => {
-    mostrarDatos();
+flexSwitch.addEventListener("click", (event) => {
+    const checkboxtrue = event.currentTarget.checked;
+    if (checkboxtrue) {
+        mostrarDatos();
+    } else {
+        ocultarDatos();
+    }
 })
 
 btnAbrirModalPrestamo.addEventListener("click", () => {

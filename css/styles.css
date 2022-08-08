@@ -11,17 +11,36 @@ body {
     text-align: center;
     font-size: 3rem;
     margin: 2rem; }
-
-.box-list {
-  background-color: white;
-  margin: 2rem;
-  padding: 3rem;
-  border-radius: 1cm; }
-  .box-list ul {
-    list-style-type: disclosure-closed;
+  body p {
     font-weight: 600; }
-  .box-list li {
-    padding: 0.5rem; }
+  body h3 {
+    font-weight: bold; }
+  body dialog {
+    border-radius: 1cm;
+    padding-bottom: 1rem; }
+    body dialog ul {
+      list-style-type: disclosure-closed;
+      font-weight: 600;
+      margin: 0 12rem; }
+    body dialog li {
+      padding: 0.5rem; }
+    body dialog::backdrop {
+      background-color: rgba(0, 0, 0, 0.7); }
+  body label {
+    font-weight: 600; }
+  body .box-list {
+    background-color: white;
+    margin: 2rem;
+    padding: 3rem;
+    border-radius: 1cm; }
+    body .box-list ul {
+      list-style-type: disclosure-closed;
+      font-weight: 600; }
+    body .box-list li {
+      padding: 0.5rem; }
+  body .no-datos {
+    color: #DE3C4B;
+    font-size: 80%; }
 
 .seccion-requisitos {
   background-color: #389EFF; }
@@ -36,15 +55,13 @@ body {
       background-color: #389EFF;
       color: #F8FAFB;
       transition: all, linear 0.3s; }
+  .seccion-requisitos .btn-modal {
+    margin: 3px; }
 
 .seccion-comofunciona {
   text-align: center; }
   .seccion-comofunciona span {
     color: #389EFF; }
-  .seccion-comofunciona h3 {
-    font-weight: bold; }
-  .seccion-comofunciona p {
-    font-weight: 600; }
   .seccion-comofunciona .col-lg-4 {
     padding: 2rem 3rem; }
   .seccion-comofunciona .bx {
@@ -72,24 +89,12 @@ body {
   .seccion-calcular-prestamo button {
     background-color: #DE3C4B;
     font-weight: 600;
-    border-radius: 0.5rem; }
+    border-radius: 0.5rem;
+    margin: 1rem 12rem; }
     .seccion-calcular-prestamo button:hover {
       background-color: #389EFF;
       color: #F8FAFB;
       transition: all, linear 0.3s; }
-  .seccion-calcular-prestamo label {
-    font-weight: 600; }
-  .seccion-calcular-prestamo dialog {
-    border-radius: 1cm;
-    text-align: center;
-    padding-bottom: 1rem; }
-    .seccion-calcular-prestamo dialog ul {
-      list-style-type: disclosure-closed;
-      font-weight: 600; }
-    .seccion-calcular-prestamo dialog li {
-      padding: 0.5rem; }
-    .seccion-calcular-prestamo dialog::backdrop {
-      background-color: rgba(0, 0, 0, 0.7); }
 
 .seccion-preguntas-frecuentes {
   background-color: #389EFF; }

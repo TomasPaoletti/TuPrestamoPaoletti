@@ -85,34 +85,44 @@
                     <h2>Ingresa tus datos</h2>
                     <p>Ingresa tus datos y te llegara por mail el link para seguir los pasos.</p>
                     <form action="">
-                        <div class="col-6">
-                            <label for="inputnombre" class="col-form-label">Nombre</label>
+                        <div class="row justify-content-center">
+                            <div class="col-6 m-2">
+                                <label for="inputnombre" class="col-form-label">Nombre</label>
+                                <input type="text" id="inputnombre" class="form-control">
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <input type="text" id="inputnombre" class="form-control">
+                        <div class="row justify-content-center">
+                            <div class="col-6 m-2">
+                                <label for="inputapellido" class="col-form-label">Apellido</label>
+                                <input type="text" id="inputapellido" class="form-control">
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <label for="inputapellido" class="col-form-label">Apellido</label>
+                        <div class="row justify-content-center">
+                            <div class="col-6 m-2">
+                                <label for="inputemail" class="col-form-label">Email</label>
+                                <input type="email" id="inputemail" class="form-control">
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <input type="text" id="inputapellido" class="form-control">
+                        <div class="row justify-content-center">
+                            <div class="col-6 m-2">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Quiero utilizar los
+                                        datos calculados</label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <label for="inputemail" class="col-form-label">Email</label>
+                        <div class="row justify-content-center" >
+                            <div class="col" id="datosCalculados">
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <input type="email" id="inputemail" class="form-control">
-                        </div>
-                        <div class="row col-6">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" value="" id="flexSwitchCheckDefault">
-                                <label class="form-check-label" for="flexSwitchCheckDefault">Quiero utilizar los datos calculados</label>
-                              </div>
-                              <div class="row col-6 box-list-form" id="datosCalculados"></div>
-                            <button class="btn btn-outline" type="button"
-                            id="btn-enviar-link">Lo quiero</button>
-                            <button class="btn btn-outline" type="button"
-                            id="btn-cerrar-modal-aplicar">Volver</button>
+                        <div class="row justify-content-center">
+                            <div class="col-6">
+                                <button class="btn btn-outline btn-modal" type="button" id="btn-enviar-link">Lo quiero</button>
+                                <button class="btn btn-outline btn-modal" type="button"
+                                    id="btn-cerrar-modal-aplicar">Volver</button>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -209,9 +219,9 @@
                     </form>
                 </div>
             </div>
-            <div class="col-lg-5">
-                <dialog id="modal-prestamo">
-                    <div class="box-list-modal">
+            <div class="row">
+                <div class="col">
+                    <dialog id="modal-prestamo">
                         <h2 id="titulo"></h2>
                         <ul>
                             <li id="primera"></li>
@@ -221,8 +231,8 @@
                         </ul>
                         <button class="btn btn-outline col-lg-4" type="button"
                             id="btn-cerrar-modal-prestamo">Volver</button>
-                    </div>
-                </dialog>
+                    </dialog>
+                </div>
             </div>
         </div>
     </section>
