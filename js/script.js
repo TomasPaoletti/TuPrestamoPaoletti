@@ -76,11 +76,7 @@ btnEnviarLink.addEventListener("click", () => {
 
 flexSwitch.addEventListener("click", (event) => {
     const checkboxtrue = event.currentTarget.checked;
-    if (checkboxtrue) {
-        mostrarDatos();
-    } else {
-        ocultarDatos();
-    }
+    checkboxtrue ? mostrarDatos() : ocultarDatos();
 })
 
 btnAbrirModalPrestamo.addEventListener("click", () => {
