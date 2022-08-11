@@ -72,6 +72,14 @@ btnEnviarLink.addEventListener("click", () => {
         "email": emailSolicitante
     }
     sessionStorage.setItem("datosSolicitante", JSON.stringify(datosSolicitante));
+    Swal.fire({
+        icon: 'success',
+        title: 'Tus datos se registraron correctamente',
+        text: 'En los siguientes minutos te llegara un mail',
+        showConfirmButton: false,
+        timer: 2500
+    })
+    modalAplicar.close();
 })
 
 flexSwitch.addEventListener("click", (event) => {

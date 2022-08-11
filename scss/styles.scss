@@ -150,7 +150,9 @@ body {
 
 .seccion-preguntas-frecuentes {
     background-color: $color-primary;
-
+    p{
+        font-size: 0.9rem;
+    }
     .accordion-button {
         background-color: $color-primary;
         font-weight: 600;

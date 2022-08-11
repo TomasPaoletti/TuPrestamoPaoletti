@@ -98,6 +98,8 @@ body {
 
 .seccion-preguntas-frecuentes {
   background-color: #389EFF; }
+  .seccion-preguntas-frecuentes p {
+    font-size: 0.9rem; }
   .seccion-preguntas-frecuentes .accordion-button {
     background-color: #389EFF;
     font-weight: 600; }
