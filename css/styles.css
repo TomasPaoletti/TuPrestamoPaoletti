@@ -31,7 +31,7 @@ body {
   body .box-list {
     background-color: white;
     margin: 2rem;
-    padding: 3rem;
+    padding: 1rem;
     border-radius: 1cm; }
     body .box-list ul {
       list-style-type: disclosure-closed;
@@ -50,7 +50,8 @@ body {
   .seccion-requisitos button {
     background-color: #DE3C4B;
     font-weight: 600;
-    border-radius: 0.5rem; }
+    border-radius: 0.5rem;
+    margin-bottom: 1rem; }
     .seccion-requisitos button:hover {
       background-color: #389EFF;
       color: #F8FAFB;
@@ -84,17 +85,15 @@ body {
     padding: 3rem;
     border-radius: 1cm; }
 
-.seccion-calcular-prestamo {
-  padding-bottom: 3rem; }
-  .seccion-calcular-prestamo button {
-    background-color: #DE3C4B;
-    font-weight: 600;
-    border-radius: 0.5rem;
-    margin: 1rem 12rem; }
-    .seccion-calcular-prestamo button:hover {
-      background-color: #389EFF;
-      color: #F8FAFB;
-      transition: all, linear 0.3s; }
+.seccion-calcular-prestamo button {
+  background-color: #DE3C4B;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  margin: 1rem 12rem; }
+  .seccion-calcular-prestamo button:hover {
+    background-color: #389EFF;
+    color: #F8FAFB;
+    transition: all, linear 0.3s; }
 
 .seccion-preguntas-frecuentes {
   background-color: #389EFF; }

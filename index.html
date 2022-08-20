@@ -75,8 +75,11 @@
                         <li>No estar dentro del Veraz
                         </li>
                     </ul>
-                    <div class="d-grid gap-2 col-4 mx-auto">
+                    <div class="d-grid col-4 mx-auto">
                         <button class="btn btn-outline" type="button" id="btn-abrir-modal-aplicar">Aplicar</button>
+                    </div>
+                    <div class="d-grid col-4 mx-auto">
+                        <button class="btn btn-outline" type="button" id="mis-creditos">Mis creditos</button>
                     </div>
                 </div>
             </div>
@@ -123,6 +126,32 @@
                                     quiero</button>
                                 <button class="btn btn-outline btn-modal" type="button"
                                     id="btn-cerrar-modal-aplicar">Volver</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </dialog>
+            <dialog id="modal-creditos">
+                <div class="container-fluid">
+                    <h2>Mis creditos</h2>
+                    <p>Ingresa tus datos para ver tus creditos</p>
+                    <form action="">
+                        <div class="row justify-content-center">
+                            <div class="col-10 m-2">
+                                <label for="nombre-filtrado" class="col-form-label">Nombre</label>
+                                <input type="text" id="nombre-filtrado" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-10 m-2">
+                                <label for="apellido-filtrado" class="col-form-label">Apellido</label>
+                                <input type="text" id="apellido-filtrado" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-10 m-2">
+                                <button class="btn btn-outline btn-modal" type="button" id="ver-credito">Ver mis
+                                    creditos</button>
                             </div>
                         </div>
                     </form>
@@ -330,7 +359,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
         </script>
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./js/script.js"></script>
 </body>
 
