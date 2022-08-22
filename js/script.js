@@ -11,8 +11,21 @@ const modalPrestamo = document.querySelector("#modal-prestamo");
 const btnEnviarLink = document.querySelector("#btn-enviar-link");
 const flexSwitch = document.querySelector("#flexSwitchCheckDefault");
 const divAgregado = document.querySelector("#datosCalculados");
-
-const creditos = [];
+const creditos = [{
+    "nombre": "Juan",
+    "apellido": "Pepe",
+    "email": "juanpepe@hotmail.com",
+    "montoPrestado": 850000,
+    "cuotasElegidas": 5
+},
+{
+    "nombre": "Tomas",
+    "apellido": "Paoletti",
+    "email": "tomas.paolettiv@hotmail.com",
+    "montoPrestado": 655526,
+    "cuotasElegidas": 9
+}];
+console.log(creditos)
 
 async function verificarEmail(emailSolicitante) {
     let API = `https://www.disify.com/api/email/${emailSolicitante}`;
@@ -69,22 +82,18 @@ function recuperacionObjetos() {
     creditos.push(objetoFinal);
 }
 
-function htmlMisCreditos() {
-    creditos.forEach(element => {
-        let liCreditos = `<li>${element.nombre}</li>
-        <li>${element.apellido}</li>
-        <li>${element.email}</li>`
+function htmlNoCreditos() {
+        let liCreditos = `<p class="no-datos">No existe ningun credito al nombre seleccionado.</p>`
         modalCreditos.innerHTML += liCreditos;
-    })
 }
 
 function htmlCreditosCalculados() {
     creditos.forEach(element => {
-        let liCreditos = `<li>${element.nombre}</li>
-        <li>${element.apellido}</li>
-        <li>${element.email}</li>
-        <li>${element.montoPrestado}</li>
-        <li>${element.cuotasElegidas}</li>`
+        let liCreditos = `<li>Nombre: ${element.nombre}</li>
+        <li>Apellido: ${element.apellido}</li>
+        <li>Email: ${element.email}</li>
+        <li>Monto prestado: $${element.montoPrestado}</li>
+        <li>Cuotas elegidas: ${element.cuotasElegidas}</li>`
         modalCreditos.innerHTML += liCreditos;
     })
 }
@@ -93,7 +102,7 @@ function buscarObj() {
     let nombreFiltrado = document.getElementById("nombre-filtrado").value;
     let apellidoFiltrado = document.getElementById("apellido-filtrado").value;
     creditos.find(object => {
-        let queMostrar = ((object.nombre === nombreFiltrado) && (object.apellido === apellidoFiltrado)) ? htmlCreditosCalculados() : htmlMisCreditos();
+        let queMostrar = ((object.nombre === nombreFiltrado) && (object.apellido === apellidoFiltrado)) ? htmlCreditosCalculados() : htmlNoCreditos();
     })
 }
 
@@ -142,7 +151,6 @@ misCreditos.addEventListener("click", () => {
 
 verCredito.addEventListener("click", () => {
     buscarObj();
-    console.log(creditos)
 })
 
 btnAbrirModalPrestamo.addEventListener("click", () => {
