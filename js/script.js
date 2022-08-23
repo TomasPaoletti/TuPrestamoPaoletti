@@ -3,8 +3,10 @@ const btnAbrirModalPrestamo = document.querySelector("#btn-abrir-modal-prestamo"
 const btnCerrarModalPrestamo = document.querySelector("#btn-cerrar-modal-prestamo");
 const btnAbirModalAplicar = document.querySelector("#btn-abrir-modal-aplicar");
 const btnCerrarModalAplicar = document.querySelector("#btn-cerrar-modal-aplicar");
-const misCreditos = document.querySelector("#mis-creditos");
+const btnMisCreditos = document.querySelector("#mis-creditos");
+const btnCerrarMisCreditos = document.querySelector("#btn-cerrar-mis-creditos");
 const modalCreditos = document.querySelector("#modal-creditos");
+const modalCreditosAMostrar = document.querySelector("#modal-credito-mostrar");
 const verCredito = document.querySelector("#ver-credito");
 const modalAplicar = document.querySelector("#modal-aplicar");
 const modalPrestamo = document.querySelector("#modal-prestamo");
@@ -17,22 +19,18 @@ const creditos = [{
     "email": "juanpepe@hotmail.com",
     "montoPrestado": 850000,
     "cuotasElegidas": 5
-},
-{
-    "nombre": "Tomas",
-    "apellido": "Paoletti",
-    "email": "tomas.paolettiv@hotmail.com",
-    "montoPrestado": 655526,
-    "cuotasElegidas": 9
 }];
-console.log(creditos)
 
-async function verificarEmail(emailSolicitante) {
-    let API = `https://www.disify.com/api/email/${emailSolicitante}`;
-    const resp = await fetch(API);
-    const dataJson = await resp.json();
-    console.log(dataJson);
+/* function disableButton() {
+    let dineroQuieres = document.getElementById("inputmonto").value !="";
+    let cuotasPagarlo = document.getElementById("inputcuotas").value !="";
+    const habilitacion = habilitarButton(dineroQuieres, cuotasPagarlo);
 }
+
+function habilitarButton (dineroQuieres, cuotasPagarlo){
+    dineroQuieres && cuotasPagarlo ? btnAbrirModalPrestamo.disabled = false : btnAbrirModalPrestamo.disabled = true
+}
+disableButton() */
 
 function calculoPrestamo(dineroPrestado, cuotasApagar) {
     let interes = cuotasApagar * 10;
@@ -42,6 +40,18 @@ function calculoPrestamo(dineroPrestado, cuotasApagar) {
         montoFinal: dineroConInteres,
         montoPorCuota: porCuota
     }
+}
+
+function datosParaCalcular() {
+    let dineroPrestado = document.getElementById("inputmonto").value;
+    let cuotasApagar = document.getElementById("inputcuotas").value;
+    const resultado = calculoPrestamo(dineroPrestado, cuotasApagar);
+    modalAgregado(resultado, dineroPrestado, cuotasApagar);
+    const datosCalculo = {
+        "montoPrestado": dineroPrestado,
+        "cuotasElegidas": cuotasApagar
+    }
+    sessionStorage.setItem("datosCalculo", JSON.stringify(datosCalculo));
 }
 
 function modalAgregado(resultado, dineroPrestado, cuotasApagar) {
@@ -60,18 +70,19 @@ function modalAgregado(resultado, dineroPrestado, cuotasApagar) {
 function mostrarDatos() {
     const datosRecuperados = JSON.parse(sessionStorage.getItem("datosCalculo"));
     if (datosRecuperados) {
-        let htmlagregado = `<ul id="remove">
+        let htmlagregado = `<ul class="remove">
    <li>Dinero solicitado: $${datosRecuperados.montoPrestado}</li>
-   <li>Cuotas elegidas : $${datosRecuperados.cuotasElegidas}</li>`;
+   <li>Cuotas elegidas : $${datosRecuperados.cuotasElegidas}</li>
+   </ul>`;
         divAgregado.innerHTML = htmlagregado;
     } else {
-        let noDatos = `<p class="no-datos" id="remove">No calculaste ningun prestamo todavia.</p>`
+        let noDatos = `<p class="no-datos remove">No calculaste ningun prestamo todavia.</p>`
         divAgregado.innerHTML = noDatos;
     }
 }
 
 function ocultarDatos() {
-    const divRemove = document.getElementById("remove");
+    const divRemove = document.querySelector(".remove");
     divRemove.remove();
 }
 
@@ -83,39 +94,58 @@ function recuperacionObjetos() {
 }
 
 function htmlNoCreditos() {
-        let liCreditos = `<p class="no-datos">No existe ningun credito al nombre seleccionado.</p>`
-        modalCreditos.innerHTML += liCreditos;
+    let liCreditos = `<div class="col-10 remove">
+    <p class="no-datos remove">No existe ningun credito al nombre seleccionado.</p>
+    </div>`
+    modalCreditosAMostrar.innerHTML = liCreditos;
 }
 
-function htmlCreditosCalculados() {
-    creditos.forEach(element => {
-        let liCreditos = `<li>Nombre: ${element.nombre}</li>
+function htmlCreditosCalculados(creditosAMostrar) {
+    creditosAMostrar.forEach(element => {
+        let liCreditos = `<div class="col box-list remove">
+        <ul>
+        <li>Nombre: ${element.nombre}</li>
         <li>Apellido: ${element.apellido}</li>
         <li>Email: ${element.email}</li>
         <li>Monto prestado: $${element.montoPrestado}</li>
-        <li>Cuotas elegidas: ${element.cuotasElegidas}</li>`
-        modalCreditos.innerHTML += liCreditos;
+        <li>Cuotas elegidas: ${element.cuotasElegidas}</li>
+        </ul>
+        </div>`
+        modalCreditosAMostrar.innerHTML = liCreditos;
     })
 }
 
 function buscarObj() {
     let nombreFiltrado = document.getElementById("nombre-filtrado").value;
     let apellidoFiltrado = document.getElementById("apellido-filtrado").value;
-    creditos.find(object => {
-        let queMostrar = ((object.nombre === nombreFiltrado) && (object.apellido === apellidoFiltrado)) ? htmlCreditosCalculados() : htmlNoCreditos();
+    const creditosAMostrar = creditos.filter((object) => {
+        return (
+            object.nombre === nombreFiltrado && object.apellido === apellidoFiltrado
+        );
     })
+    creditosAMostrar.length > 0 ? htmlCreditosCalculados(creditosAMostrar) : htmlNoCreditos();
 }
 
-btnAbrirModalPrestamo.addEventListener("click", () => {
-    let dineroPrestado = document.getElementById("inputmonto").value;
-    let cuotasApagar = document.getElementById("inputcuotas").value;
-    const resultado = calculoPrestamo(dineroPrestado, cuotasApagar);
-    modalAgregado(resultado, dineroPrestado, cuotasApagar);
-    const datosCalculo = {
-        "montoPrestado": dineroPrestado,
-        "cuotasElegidas": cuotasApagar
+async function verificarEmail(emailSolicitante) {
+    let API = `https://www.disify.com/api/email/${emailSolicitante}`;
+    const resp = await fetch(API);
+    const dataJson = await resp.json();
+    console.log(dataJson);
+}
+
+const dineroQuieres = document.getElementById("inputmonto");
+const cuotasPagarlo = document.getElementById("inputcuotas");
+
+cuotasPagarlo.addEventListener("change", () =>{
+    if(dineroQuieres.value == ""){
+        btnAbrirModalPrestamo.disabled = true;
+    }else{
+        btnAbrirModalPrestamo.removeAttribute("disabled");
     }
-    sessionStorage.setItem("datosCalculo", JSON.stringify(datosCalculo));
+})
+
+btnAbrirModalPrestamo.addEventListener("click", () => {
+    datosParaCalcular();
 })
 
 btnEnviarLink.addEventListener("click", () => {
@@ -145,31 +175,34 @@ flexSwitch.addEventListener("click", (event) => {
     checkboxtrue ? mostrarDatos() : ocultarDatos();
 })
 
-misCreditos.addEventListener("click", () => {
-    modalCreditos.showModal();
-})
-
 verCredito.addEventListener("click", () => {
     buscarObj();
 })
 
-btnAbrirModalPrestamo.addEventListener("click", () => {
+btnAbrirModalPrestamo.onclick = () => {
     modalPrestamo.showModal();
-})
+}
 
-btnCerrarModalPrestamo.addEventListener("click", () => {
+btnCerrarModalPrestamo.onclick = () => {
     modalPrestamo.close();
-})
+}
 
-btnAbirModalAplicar.addEventListener("click", () => {
+btnAbirModalAplicar.onclick = () => {
     modalAplicar.showModal();
-})
+}
 
-btnCerrarModalAplicar.addEventListener("click", () => {
+btnCerrarModalAplicar.onclick = () => {
     modalAplicar.close();
+}
+
+btnMisCreditos.onclick = () => {
+    modalCreditos.showModal();
+}
+
+btnCerrarMisCreditos.addEventListener("click", () => {
+    modalCreditos.close();
+    ocultarDatos();
 })
-
-
 
 
 

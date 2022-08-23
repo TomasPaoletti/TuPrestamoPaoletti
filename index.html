@@ -102,7 +102,7 @@
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-6 m-2">
-                                <label for="inputemail" class="col-form-label">Email</label>
+                                <label for="inputemail" class="form-label">Email</label>
                                 <input type="email" id="inputemail" class="form-control">
                             </div>
                         </div>
@@ -149,12 +149,16 @@
                             </div>
                         </div>
                         <div class="row justify-content-center">
-                            <div class="col-10 m-2">
-                                <button class="btn btn-outline btn-modal" type="button" id="ver-credito">Ver mis
-                                    creditos</button>
+                            <div class="col-10">
+                                <button class="btn btn-outline btn-modal" type="button" id="ver-credito">Ver mi
+                                    credito</button>
+                                    <button class="btn btn-outline btn-modal" type="button"
+                                    id="btn-cerrar-mis-creditos">Volver</button>
                             </div>
                         </div>
                     </form>
+                    <div class="row justify-content-center" id="modal-credito-mostrar">
+                    </div>
                 </div>
             </dialog>
         </div>
@@ -220,7 +224,7 @@
                                 <label for="inputmonto" class="col-form-label">¿Cuanto dinero quieres?</label>
                             </div>
                             <div class="col-lg-5">
-                                <input type="number" id="inputmonto" class="form-control">
+                                <input type="number" id="inputmonto" class="form-control" value="">
                             </div>
                             <div class="col-lg-5">
                                 <label for="inputcuotas" class="col-form-label">¿En cuantas cuotas quieres
@@ -244,7 +248,7 @@
                                 </select>
                             </div>
                             <button class="btn btn-outline col-lg-5" type="button"
-                                id="btn-abrir-modal-prestamo">Calcular</button>
+                                id="btn-abrir-modal-prestamo" disabled>Calcular</button>
                         </div>
                     </form>
                 </div>
