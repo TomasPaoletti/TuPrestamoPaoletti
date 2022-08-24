@@ -87,7 +87,7 @@
                 <div class="container-fluid">
                     <h2>Ingresa tus datos</h2>
                     <p>Ingresa tus datos y te llegara por mail el link para seguir los pasos.</p>
-                    <form action="">
+                    <form action="" id="formulario-aplicar">
                         <div class="row justify-content-center">
                             <div class="col-6 m-2">
                                 <label for="inputnombre" class="col-form-label">Nombre</label>
@@ -133,9 +133,13 @@
             </dialog>
             <dialog id="modal-creditos">
                 <div class="container-fluid">
-                    <h2>Mis creditos</h2>
-                    <p>Ingresa tus datos para ver tus creditos</p>
-                    <form action="">
+                    <div class="row justify-content-center">
+                        <h2>Mis creditos</h2>
+                    </div>
+                    <div class="row justify-content-center">
+                        <p>Ingresa tus datos para ver tus creditos</p>
+                    </div>
+                    <form action="" id="formulario-creditos">
                         <div class="row justify-content-center">
                             <div class="col-10 m-2">
                                 <label for="nombre-filtrado" class="col-form-label">Nombre</label>
@@ -152,12 +156,12 @@
                             <div class="col-10">
                                 <button class="btn btn-outline btn-modal" type="button" id="ver-credito">Ver mi
                                     credito</button>
-                                    <button class="btn btn-outline btn-modal" type="button"
+                                <button class="btn btn-outline btn-modal" type="button"
                                     id="btn-cerrar-mis-creditos">Volver</button>
                             </div>
                         </div>
                     </form>
-                    <div class="row justify-content-center" id="modal-credito-mostrar">
+                    <div class="col" id="modal-credito-mostrar">
                     </div>
                 </div>
             </dialog>
@@ -232,7 +236,6 @@
                             </div>
                             <div class="col-lg-5">
                                 <select class="form-select" id="inputcuotas">
-                                    <option selected></option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -247,8 +250,8 @@
                                     <option value="12">12</option>
                                 </select>
                             </div>
-                            <button class="btn btn-outline col-lg-5" type="button"
-                                id="btn-abrir-modal-prestamo" disabled>Calcular</button>
+                            <button class="btn btn-outline col-lg-5" type="button" id="btn-abrir-modal-prestamo"
+                                disabled>Calcular</button>
                         </div>
                     </form>
                 </div>

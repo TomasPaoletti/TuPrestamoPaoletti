@@ -13,24 +13,16 @@ const modalPrestamo = document.querySelector("#modal-prestamo");
 const btnEnviarLink = document.querySelector("#btn-enviar-link");
 const flexSwitch = document.querySelector("#flexSwitchCheckDefault");
 const divAgregado = document.querySelector("#datosCalculados");
+const formularioAplicar = document.querySelector("#formulario-aplicar");
+const formularioCreditos = document.querySelector("#formulario-creditos");
+const dineroQuieres = document.getElementById("inputmonto");
 const creditos = [{
-    "nombre": "Juan",
-    "apellido": "Pepe",
+    "nombre": "JUAN",
+    "apellido": "PEPE",
     "email": "juanpepe@hotmail.com",
     "montoPrestado": 850000,
     "cuotasElegidas": 5
 }];
-
-/* function disableButton() {
-    let dineroQuieres = document.getElementById("inputmonto").value !="";
-    let cuotasPagarlo = document.getElementById("inputcuotas").value !="";
-    const habilitacion = habilitarButton(dineroQuieres, cuotasPagarlo);
-}
-
-function habilitarButton (dineroQuieres, cuotasPagarlo){
-    dineroQuieres && cuotasPagarlo ? btnAbrirModalPrestamo.disabled = false : btnAbrirModalPrestamo.disabled = true
-}
-disableButton() */
 
 function calculoPrestamo(dineroPrestado, cuotasApagar) {
     let interes = cuotasApagar * 10;
@@ -52,6 +44,19 @@ function datosParaCalcular() {
         "cuotasElegidas": cuotasApagar
     }
     sessionStorage.setItem("datosCalculo", JSON.stringify(datosCalculo));
+}
+
+function tomaDeDatos (){
+    let nombreSolicitante = document.getElementById("inputnombre").value.toUpperCase();
+    let apellidoSolicitante = document.getElementById("inputapellido").value.toUpperCase();
+    let emailSolicitante = document.getElementById("inputemail").value;
+    const datosSolicitante = {
+        "nombre": nombreSolicitante,
+        "apellido": apellidoSolicitante,
+        "email": emailSolicitante
+    }
+    localStorage.setItem("datosSolicitante", JSON.stringify(datosSolicitante));
+    verificarEmail(emailSolicitante);
 }
 
 function modalAgregado(resultado, dineroPrestado, cuotasApagar) {
@@ -102,22 +107,22 @@ function htmlNoCreditos() {
 
 function htmlCreditosCalculados(creditosAMostrar) {
     creditosAMostrar.forEach(element => {
-        let liCreditos = `<div class="col box-list remove">
-        <ul>
-        <li>Nombre: ${element.nombre}</li>
-        <li>Apellido: ${element.apellido}</li>
-        <li>Email: ${element.email}</li>
-        <li>Monto prestado: $${element.montoPrestado}</li>
-        <li>Cuotas elegidas: ${element.cuotasElegidas}</li>
-        </ul>
-        </div>`
+        let liCreditos = `<div class="remove">
+            <ul>
+            <li>Nombre: ${element.nombre}</li>
+            <li>Apellido: ${element.apellido}</li>
+            <li>Email: ${element.email}</li>
+            <li>Monto prestado: $${element.montoPrestado}</li>
+            <li>Cuotas elegidas: ${element.cuotasElegidas}</li>
+            </ul>
+            </div>`
         modalCreditosAMostrar.innerHTML = liCreditos;
     })
 }
 
 function buscarObj() {
-    let nombreFiltrado = document.getElementById("nombre-filtrado").value;
-    let apellidoFiltrado = document.getElementById("apellido-filtrado").value;
+    let nombreFiltrado = document.getElementById("nombre-filtrado").value.toUpperCase();
+    let apellidoFiltrado = document.getElementById("apellido-filtrado").value.toUpperCase();
     const creditosAMostrar = creditos.filter((object) => {
         return (
             object.nombre === nombreFiltrado && object.apellido === apellidoFiltrado
@@ -133,15 +138,18 @@ async function verificarEmail(emailSolicitante) {
     console.log(dataJson);
 }
 
-const dineroQuieres = document.getElementById("inputmonto");
-const cuotasPagarlo = document.getElementById("inputcuotas");
-
-cuotasPagarlo.addEventListener("change", () =>{
-    if(dineroQuieres.value == ""){
-        btnAbrirModalPrestamo.disabled = true;
-    }else{
+function disableButton() {
+    let dineroAprobar = document.getElementById("inputmonto").value;
+    let cuotasAprobar = document.getElementById("inputcuotas");
+    if (dineroAprobar && cuotasAprobar){
         btnAbrirModalPrestamo.removeAttribute("disabled");
+    }else {
+        btnAbrirModalPrestamo.setAttribute("disabled", "");
     }
+}
+
+dineroQuieres.addEventListener("change", () =>{
+    disableButton()
 })
 
 btnAbrirModalPrestamo.addEventListener("click", () => {
@@ -149,15 +157,7 @@ btnAbrirModalPrestamo.addEventListener("click", () => {
 })
 
 btnEnviarLink.addEventListener("click", () => {
-    let nombreSolicitante = document.getElementById("inputnombre").value;
-    let apellidoSolicitante = document.getElementById("inputapellido").value;
-    let emailSolicitante = document.getElementById("inputemail").value;
-    const datosSolicitante = {
-        "nombre": nombreSolicitante,
-        "apellido": apellidoSolicitante,
-        "email": emailSolicitante
-    }
-    localStorage.setItem("datosSolicitante", JSON.stringify(datosSolicitante));
+    tomaDeDatos()
     Swal.fire({
         icon: 'success',
         title: 'Tus datos se registraron correctamente',
@@ -165,7 +165,6 @@ btnEnviarLink.addEventListener("click", () => {
         showConfirmButton: false,
         timer: 2500
     })
-    verificarEmail(emailSolicitante);
     recuperacionObjetos();
     modalAplicar.close();
 })
@@ -193,6 +192,9 @@ btnAbirModalAplicar.onclick = () => {
 
 btnCerrarModalAplicar.onclick = () => {
     modalAplicar.close();
+    formularioAplicar.reset();
+    flexSwitch.checked = false;
+    ocultarDatos();
 }
 
 btnMisCreditos.onclick = () => {
@@ -201,6 +203,7 @@ btnMisCreditos.onclick = () => {
 
 btnCerrarMisCreditos.addEventListener("click", () => {
     modalCreditos.close();
+    formularioCreditos.reset()
     ocultarDatos();
 })
 

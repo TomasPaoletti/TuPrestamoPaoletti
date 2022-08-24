@@ -20,8 +20,7 @@ body {
     padding-bottom: 1rem; }
     body dialog ul {
       list-style-type: disclosure-closed;
-      font-weight: 600;
-      margin: 0 12rem; }
+      font-weight: 600; }
     body dialog li {
       padding: 0.5rem; }
     body dialog::backdrop {
