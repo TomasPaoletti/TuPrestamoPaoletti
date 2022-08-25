@@ -16,6 +16,9 @@ const divAgregado = document.querySelector("#datosCalculados");
 const formularioAplicar = document.querySelector("#formulario-aplicar");
 const formularioCreditos = document.querySelector("#formulario-creditos");
 const dineroQuieres = document.getElementById("inputmonto");
+const nombreEnableButton = document.querySelector("#inputnombre");
+const apellidoEnableButton =document.querySelector("#inputapellido");
+const emailEnableButton = document.querySelector("#inputemail");
 const creditos = [{
     "nombre": "JUAN",
     "apellido": "PEPE",
@@ -32,7 +35,7 @@ function calculoPrestamo(dineroPrestado, cuotasApagar) {
         montoFinal: dineroConInteres,
         montoPorCuota: porCuota
     }
-}
+};
 
 function datosParaCalcular() {
     let dineroPrestado = document.getElementById("inputmonto").value;
@@ -44,9 +47,9 @@ function datosParaCalcular() {
         "cuotasElegidas": cuotasApagar
     }
     sessionStorage.setItem("datosCalculo", JSON.stringify(datosCalculo));
-}
+};
 
-function tomaDeDatos (){
+function tomaDeDatos() {
     let nombreSolicitante = document.getElementById("inputnombre").value.toUpperCase();
     let apellidoSolicitante = document.getElementById("inputapellido").value.toUpperCase();
     let emailSolicitante = document.getElementById("inputemail").value;
@@ -57,7 +60,7 @@ function tomaDeDatos (){
     }
     localStorage.setItem("datosSolicitante", JSON.stringify(datosSolicitante));
     verificarEmail(emailSolicitante);
-}
+};
 
 function modalAgregado(resultado, dineroPrestado, cuotasApagar) {
     const titulo = document.querySelector("#titulo")
@@ -70,7 +73,7 @@ function modalAgregado(resultado, dineroPrestado, cuotasApagar) {
     segunda.textContent = "Cantidad de cuotas: " + cuotasApagar;
     tercera.textContent = "Monto a devolver: $" + resultado.montoFinal;
     cuarta.textContent = "Tus cuotas seran de: $" + resultado.montoPorCuota.toFixed(2);
-}
+};
 
 function mostrarDatos() {
     const datosRecuperados = JSON.parse(sessionStorage.getItem("datosCalculo"));
@@ -84,26 +87,28 @@ function mostrarDatos() {
         let noDatos = `<p class="no-datos remove">No calculaste ningun prestamo todavia.</p>`
         divAgregado.innerHTML = noDatos;
     }
-}
+};
 
 function ocultarDatos() {
     const divRemove = document.querySelector(".remove");
-    divRemove.remove();
-}
+    if (divRemove) {
+        divRemove.remove();
+    }
+};
 
 function recuperacionObjetos() {
     let objetoRecuperado = JSON.parse(localStorage.getItem("datosSolicitante"));
     let objetoRecuperado2 = JSON.parse(sessionStorage.getItem("datosCalculo"));
     let objetoFinal = { ...objetoRecuperado, ...objetoRecuperado2 };
     creditos.push(objetoFinal);
-}
+};
 
 function htmlNoCreditos() {
     let liCreditos = `<div class="col-10 remove">
     <p class="no-datos remove">No existe ningun credito al nombre seleccionado.</p>
     </div>`
     modalCreditosAMostrar.innerHTML = liCreditos;
-}
+};
 
 function htmlCreditosCalculados(creditosAMostrar) {
     creditosAMostrar.forEach(element => {
@@ -118,7 +123,7 @@ function htmlCreditosCalculados(creditosAMostrar) {
             </div>`
         modalCreditosAMostrar.innerHTML = liCreditos;
     })
-}
+};
 
 function buscarObj() {
     let nombreFiltrado = document.getElementById("nombre-filtrado").value.toUpperCase();
@@ -129,32 +134,43 @@ function buscarObj() {
         );
     })
     creditosAMostrar.length > 0 ? htmlCreditosCalculados(creditosAMostrar) : htmlNoCreditos();
-}
+};
 
 async function verificarEmail(emailSolicitante) {
     let API = `https://www.disify.com/api/email/${emailSolicitante}`;
     const resp = await fetch(API);
     const dataJson = await resp.json();
     console.log(dataJson);
-}
+};
 
 function disableButton() {
-    let dineroAprobar = document.getElementById("inputmonto").value;
     let cuotasAprobar = document.getElementById("inputcuotas");
-    if (dineroAprobar && cuotasAprobar){
-        btnAbrirModalPrestamo.removeAttribute("disabled");
-    }else {
-        btnAbrirModalPrestamo.setAttribute("disabled", "");
-    }
-}
+    dineroQuieres.value && cuotasAprobar ? btnAbrirModalPrestamo.removeAttribute("disabled") : btnAbrirModalPrestamo.setAttribute("disabled", "");
+};
 
-dineroQuieres.addEventListener("change", () =>{
+function disableButtonLoQuiero (){
+    nombreEnableButton.value && apellidoEnableButton.value && emailEnableButton.value ? btnEnviarLink.removeAttribute("disabled") : btnEnviarLink.setAttribute("disabled", ""); 
+};
+
+dineroQuieres.addEventListener("change", () => {
     disableButton()
-})
+});
 
 btnAbrirModalPrestamo.addEventListener("click", () => {
     datosParaCalcular();
-})
+});
+
+nombreEnableButton.addEventListener("change", () =>{
+    disableButtonLoQuiero()
+});
+
+apellidoEnableButton.addEventListener("change", () =>{
+    disableButtonLoQuiero()
+});
+
+emailEnableButton.addEventListener("change", () =>{
+    disableButtonLoQuiero()
+});
 
 btnEnviarLink.addEventListener("click", () => {
     tomaDeDatos()
@@ -167,45 +183,44 @@ btnEnviarLink.addEventListener("click", () => {
     })
     recuperacionObjetos();
     modalAplicar.close();
-})
+    formularioAplicar.reset();
+    flexSwitch.checked = false;
+});
 
 flexSwitch.addEventListener("click", (event) => {
     const checkboxtrue = event.currentTarget.checked;
     checkboxtrue ? mostrarDatos() : ocultarDatos();
-})
+});
 
 verCredito.addEventListener("click", () => {
     buscarObj();
-})
+});
 
 btnAbrirModalPrestamo.onclick = () => {
     modalPrestamo.showModal();
-}
+};
 
 btnCerrarModalPrestamo.onclick = () => {
     modalPrestamo.close();
-}
+};
 
 btnAbirModalAplicar.onclick = () => {
     modalAplicar.showModal();
-}
+};
 
 btnCerrarModalAplicar.onclick = () => {
     modalAplicar.close();
     formularioAplicar.reset();
     flexSwitch.checked = false;
     ocultarDatos();
-}
+};
 
 btnMisCreditos.onclick = () => {
     modalCreditos.showModal();
-}
+};
 
 btnCerrarMisCreditos.addEventListener("click", () => {
     modalCreditos.close();
     formularioCreditos.reset()
     ocultarDatos();
-})
-
-
-
+});
